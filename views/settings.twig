@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block navigation %}
+  {{ parent() }}
+{% endblock %}
+
+{% block content %}
+  <h1>Settings</h1>
+  <div class="settings">
+    <form action="/change_user_login" method="post">
+      <input id="username" name="username" placeholder="Change your username" required/>
+      <button>Update changes</button>
+    </form>
+    <form>
+      <input type="password" placeholder="Change your password"/>
+      <button>Update changes</button>
+    </form>
+  </div>
+{% endblock %}

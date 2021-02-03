@@ -1,0 +1,24 @@
+{% extends "no_navbar_base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+<div class="index">
+	<div class="connexion">
+		<img src="/images/logoTemplate.png"/>
+		<h1>Register</h1>
+
+		<form action="/create_user" method="post">
+  			<input id="name" name="username" placeholder="Username" required/>
+			<input id="password" name="password" placeholder="Password" type="password" required/>
+			<div class="options_container">
+        <a href="/">Already an account ? Login</a>
+			</div>
+  		<button type="submit">Register</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

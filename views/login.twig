@@ -1,0 +1,29 @@
+{% extends "no_navbar_base.html" %}
+
+{% block title %}Login{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+<div class="index">
+	<div class="connexion">
+		<img src="/images/logoTemplate.png"/>
+		<h1>Login</h1>
+
+		<form action="/login_user" method="post">
+      {% if error == true %}
+        <div class="error_login">
+          <p>Wrong username or password</p>
+        </div>
+      {% endif %}
+  		<input id="username" name="username" placeholder="Username" required/>
+			<input id="password" name="password" placeholder="Password" type="password" required/>
+			<div class="options_container">
+        <a href="/register">No account ? Register</a>
+			</div>
+  		<button type="submit">Login</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

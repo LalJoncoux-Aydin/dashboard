@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+            <link rel="stylesheet" href="stylesheets/style.css"/>
+            <title>{% block title %}{% endblock %} - Dashboard</title>
+        {% endblock %}
+    </head>
+    <body>
+        {% block navigation %}
+          <div class="nav">
+            <h1>Navbar</h1>
+            <div class="nav_container">
+              <img class="nav_icon" src="images/dashboard.png">
+              <a href="/home">Home</a>
+            </div>
+            <div class="nav_container">
+              <img class="nav_icon" src="images/settings_icon.png">
+              <a href="/settings">Settings</a>
+            </div>
+            <div class="nav_category">
+              <h3>Videos and Movies</h3>
+              <div class="nav_container">
+                <img class="nav_icon" src="images/imdb_icon.png">
+                Add Imdb Widget
+              </div>
+              <div class="sub_nav_container">
+                <a href="/imdb_movies">Search for Movies</a>
+              </div>
+              <div class="sub_nav_container">
+                <a href="/imdb_person">Search for Person</a>
+              </div>
+            </div>
+            <div class="nav_category">
+              <h3>Animals</h3>
+              <div class="nav_container">
+                <img class="nav_icon" src="images/shiba_icon.png">
+                Add Shiba Widget
+              </div>
+              <div class="sub_nav_container">
+                <a href="/shiba">Generate a Shiba</a>
+              </div>
+              <div class="nav_container">
+                <img class="nav_icon" src="images/dog_icon.png">
+                Add Dog Widget
+              </div>
+              <div class="sub_nav_container">
+                <a href="/dog">Generate a Dog</a>
+              </div>
+              <div class="nav_container">
+                <img class="nav_icon" src="images/cat_icon.png">
+                Add Cat Widget
+              </div>
+              <div class="sub_nav_container">
+                <a href="/cat">Generate a Cat</a>
+              </div>
+            </div>
+            <div class="nav_category">
+              <h3>Food</h3>
+              <div class="nav_container">
+                <img class="nav_icon" src="images/food_icon.png">
+                Add Food Widget
+              </div>
+              <div class="sub_nav_container">
+                <a href="/mealrandom">Generate a random recipe</a>
+              </div>
+              <div class="sub_nav_container">
+                <a href="/mealbyname">Search for a recipe by it's name</a>
+              </div>
+              <div class="sub_nav_container">
+                <a href="/mealbyingredient">Search for a recipe by it's ingredients</a>
+              </div>
+              <div class="sub_nav_container">
+                <a href="/mealbycategory">Search for a recipe by it's category</a>
+              </div>
+              <div class="sub_nav_container">
+                <a href="/mealbyarea">Search for a recipe by it's area</a>
+              </div>
+            </div>
+            <div class="nav_container logout_container">
+              <img class="nav_icon" src="images/logout_icon.png">
+              <a href="/logout">Logout</a>
+            </div>
+          </div>
+        {% endblock %}
+        <div class="content">
+          {% block content %}
+          {% endblock %}
+        </div>
+    </body>
+</html>

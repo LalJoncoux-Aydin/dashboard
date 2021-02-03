@@ -1,0 +1,36 @@
+{
+  "name": "b-dev-500-par-5-1-cardgames-julien.mertian-de-muller",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "config": "^3.3.3",
+    "consolidate": "^0.16.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "express": "~4.16.1",
+    "express-async-handler": "^1.1.4",
+    "google-auth-library": "^6.1.3",
+    "googleapis": "^65.0.0",
+    "http-errors": "^1.8.0",
+    "jade": "^0.29.0",
+    "js-sha512": "^0.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mariadb": "^2.5.1",
+    "moment": "^2.29.1",
+    "morgan": "~1.9.1",
+    "mysql": "^2.18.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "swig": "^0.14.0",
+    "twig": "^1.15.4",
+    "utils": "^0.3.1"
+  },
+  "devDependencies": {
+    "docker-compose": "^0.23.5"
+  }
+}

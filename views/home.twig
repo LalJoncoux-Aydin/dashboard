@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+
+{% block navigation %}
+  {{ parent() }}
+{% endblock %}
+
+{% block content %}
+  <h1>Dashboard</h1>
+  <div class="widget_container">
+    {% for widget in list_widget %}
+      <div class="widget">
+
+        <div class="delete_container">
+          <form action="/delete_widget/{{ widget._id }}" method="get">
+            <button class="delete_button" type="submit"><img src="images/delete_icon.png"></button>
+          </form>
+        </div>
+
+        <form class="widget_content" action="{{ widget._action }}/{{ widget._id }}" method="get">
+          <h3>{{ widget._title }}</h3>
+          <div class="research_container">
+            <div class="research">
+              {% if (widget._type == "imdb_movies" or widget._type == "imdb_person" or widget._type == "foodbyname") %}
+                <input name="{{ widget._input_name }}" placeholder="{{ widget._input_holder }}"></input>
+              {% elseif (widget._type == "foodbyingredient" or widget._type == "foodbycategory" or widget._type == "foodbyarea") %}
+                <select name="{{ widget._input_name }}">
+                  {% for param in widget._parameters %}
+                    <option>{{ param }}</option>
+                  {% endfor %}
+                </select>
+              {% endif %}
+              <button type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+
+        <div class="open_container">
+          <form action="/open_widget/{{ widget._id }}" method="get">
+            <button class="open_button" ype="submit">
+              {% if widget._open == true %}
+                <img src="images/open_icon.png">
+              {% else %}
+                <img class="closed_button" src="images/open_icon.png">
+              {% endif %}
+            </button>
+          </form>
+        </div>
+
+        {% if widget._open == true %}
+          <div class="res_widget">
+        {% else %}
+          <div class="close_widget">
+        {% endif %}
+            {% set id = 0 %}
+            {% for res_data in widget._data %}
+              <div class="line_result">
+                {% if (widget._type == "shiba" or widget._type == "dog" or widget._type == "cat") %}
+                  <img class="full_image" src="{{ res_data }}">
+                {% elseif (widget._type == "foodrandom" or widget._type == "foodbyname" or widget._type == "foodbyingredient" or widget._type == "foodbycategory" or widget._type == "foodbyarea") %}
+                  <img class="small_image" src="{{ widget._images[id] }}">
+                  {{ res_data }}
+                  {% set id = id + 1 %}
+                {% else %}
+                  {{ res_data }}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
